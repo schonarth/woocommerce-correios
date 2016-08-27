@@ -72,7 +72,7 @@ class WC_Correios_Integration extends WC_Integration {
 			'tracking' => array(
 				'title'       => __( 'Tracking History Table', 'woocommerce-correios' ),
 				'type'        => 'title',
-				'description' => __( 'Displays a table with informations about the shipping in My Account > View Order page.', 'woocommerce-correios' ),
+				'description' => __( 'Displays a table with information about the shipping in My Account > View Order page.', 'woocommerce-correios' ),
 			),
 			'tracking_enable' => array(
 				'title'   => __( 'Enable/Disable', 'woocommerce-correios' ),
@@ -90,7 +90,7 @@ class WC_Correios_Integration extends WC_Integration {
 			'autofill_addresses' => array(
 				'title'       => __( 'Autofill Addresses', 'woocommerce-correios' ),
 				'type'        => 'title',
-				'description' => __( 'Displays a table with informations about the shipping in My Account > View Order page.', 'woocommerce-correios' ),
+				'description' => __( 'Displays a table with information about the shipping in My Account > View Order page.', 'woocommerce-correios' ),
 			),
 			'autofill_enable' => array(
 				'title'   => __( 'Enable/Disable', 'woocommerce-correios' ),

@@ -464,7 +464,7 @@ msgstr ""
 #: includes/integrations/class-wc-correios-integration.php:75
 #: includes/integrations/class-wc-correios-integration.php:93
 msgid ""
-"Displays a table with informations about the shipping in My Account > View "
+"Displays a table with information about the shipping in My Account > View "
 "Order page."
 msgstr ""
 
