@@ -51,6 +51,7 @@ abstract class WC_Correios_Shipping extends WC_Shipping_Method {
 		// Define user set variables.
 		$this->enabled            = $this->get_option( 'enabled' );
 		$this->title              = $this->get_option( 'title' );
+		$this->shipping_class     = $this->get_option( 'shipping_class' );
 		$this->origin_postcode    = $this->get_option( 'origin_postcode' );
 		$this->show_delivery_time = $this->get_option( 'show_delivery_time' );
 		$this->additional_time    = $this->get_option( 'additional_time' );
@@ -104,6 +105,15 @@ abstract class WC_Correios_Shipping extends WC_Shipping_Method {
 				'title'   => __( 'Behavior Options', 'woocommerce-correios' ),
 				'type'    => 'title',
 				'default' => '',
+			),
+			'shipping_class' => array(
+				'title'       => __( 'Shipping Class', 'woocommerce-correios' ),
+				'type'        => 'select',
+				'description' => __( 'Select for which shipping class this method will be applied.', 'woocommerce-correios' ),
+				'desc_tip'    => true,
+				'default'     => '',
+				'class'       => 'wc-enhanced-select',
+				'options'     => $this->get_shipping_classes_options(),
 			),
 			'origin_postcode' => array(
 				'title'       => __( 'Origin Postcode', 'woocommerce-correios' ),
@@ -441,5 +451,23 @@ abstract class WC_Correios_Shipping extends WC_Shipping_Method {
 
 		// Add rate to WooCommerce.
 		$this->add_rate( $rates[0] );
+	}
+
+	/**
+	 * Get shipping classes options.
+	 *
+	 * @return array
+	 */
+	protected function get_shipping_classes_options() {
+		$shipping_classes = WC()->shipping->get_shipping_classes();
+		$options          = array(
+			'' => __( '-- Select a shipping class --', 'woocommerce-correios' ),
+		);
+
+		if ( ! empty( $shipping_classes ) ) {
+			$options += wp_list_pluck( $shipping_classes, 'name', 'slug' );
+		}
+
+		return $options;
 	}
 }
